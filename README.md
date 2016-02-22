@@ -1,4 +1,19 @@
 # r-baseball
-An R package for working with baseball data
+An R module for importing and working with baseball data
 
-Will incorporate common data sources, and include method for computing and working with advanced statistics.
+Ultimately, the files in this repo should be used to automate the creation of an R package which includes common
+baseball data sources and utilities for working with data. As of Feb 2016, this is still very much a work in
+progress.
+
+# HOWTO Build the package
+
+Run the script extract/download.groovy to download and extract raw data (CSV files):
+```
+groovy download.groovy
+```
+
+Run the script Baseball.R to build R package (PENDING):
+```
+Rscript Baseball.R
+```
+
