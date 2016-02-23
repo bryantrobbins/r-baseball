@@ -3,6 +3,13 @@
 # Author: Bryan Robbins <bryantrobbins@gmail.com>
 #
 
+cran <- "http://cran.rstudio.com/"
+plist <- c("devtools", "roxygen2")
+install.packages(plist, repos=cran)
+
+library(devtools)
+devtools::load_all(pkg = "baseball")
+
 # All Lahman tables from CSV
 Lahman.AllstarFull <- read.csv('extract/lahman/AllstarFull.csv')
 Lahman.Appearances <- read.csv('extract/lahman/Appearances.csv')
@@ -30,8 +37,38 @@ Lahman.TeamsFranchises <- read.csv('extract/lahman/TeamsFranchises.csv')
 Lahman.TeamsHalf <- read.csv('extract/lahman/TeamsHalf.csv')
 
 # Game Logs from Retrosheet
-RetroGL.RegularSeason <- read.csv('extract/gamelogs/gl-regular.csv')
-RetroGL.PostSeason <- read.csv('extract/gamelogs/gl-post.csv')
-RetroGL.AllStar <- read.csv('extract/gamelogs/gl-allstar.csv')
+RetroGL.RegularSeason <- read.csv('extract/gamelogs/gl_regular.csv')
+RetroGL.PostSeason <- read.csv('extract/gamelogs/gl_post.csv')
+RetroGL.AllStar <- read.csv('extract/gamelogs/gl_allstar.csv')
 
+# Export as RData files
+devtools::use_data(Lahman.AllstarFull,
+                   Lahman.Appearances,
+                   Lahman.AwardsManagers,
+                   Lahman.AwardsPlayers,
+                   Lahman.AwardsShareManagers,
+                   Lahman.AwardsSharePlayers,
+                   Lahman.Batting,
+                   Lahman.BattingPost,
+                   Lahman.CollegePlaying,
+                   Lahman.Fielding,
+                   Lahman.FieldingOF,
+                   Lahman.FieldingPost,
+                   Lahman.HallOfFame,
+                   Lahman.Managers,
+                   Lahman.ManagersHalf,
+                   Lahman.Master,
+                   Lahman.Pitching,
+                   Lahman.PitchingPost,
+                   Lahman.Salaries,
+                   Lahman.Schools,
+                   Lahman.SeriesPost,
+                   Lahman.Teams,
+                   Lahman.TeamsFranchises,
+                   Lahman.TeamsHalf,
+                   RetroGL.AllStar,
+                   RetroGL.PostSeason,
+                   RetroGL.RegularSeason,
+                   pkg = "baseball")
 
+devtools::build(pkg = "baseball")
