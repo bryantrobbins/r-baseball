@@ -8,7 +8,7 @@ libloc <- "."
 plist <- c("devtools", "roxygen2")
 install.packages(plist, repos=cran, lib=libloc)
 
-library(devtools)
+library(devtools, lib=libloc)
 devtools::load_all(pkg = "baseball")
 
 # All Lahman tables from CSV
