@@ -4,8 +4,9 @@
 #
 
 cran <- "http://cran.rstudio.com/"
+libloc <- "."
 plist <- c("devtools", "roxygen2")
-install.packages(plist, repos=cran)
+install.packages(plist, repos=cran, lib=libloc)
 
 library(devtools)
 devtools::load_all(pkg = "baseball")
